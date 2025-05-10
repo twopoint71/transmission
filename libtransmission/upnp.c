@@ -194,8 +194,8 @@ int tr_upnpPulse(tr_upnp* handle, int port, bool isEnabled, bool doPortCheck)
 
         errno = 0;
 
-        if (UPNP_GetValidIGD(devlist, &handle->urls, &handle->data, handle->lanaddr,
-            sizeof(handle->lanaddr)) == UPNP_IGD_VALID_CONNECTED)
+    if (UPNP_GetValidIGD(devlist, &handle->urls, &handle->data, handle->lanaddr,
+	sizeof(handle->lanaddr), NULL, 0) == UPNP_IGD_VALID_CONNECTED)
         {
             tr_logAddNamedInfo(getKey(), _("Found Internet Gateway Device \"%s\""), handle->urls.controlURL);
             tr_logAddNamedInfo(getKey(), _("Local Address is \"%s\""), handle->lanaddr);
